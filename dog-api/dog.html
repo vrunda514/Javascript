@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog API Images</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+    <style>
+
+        .container1 {
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            margin-top: 0px;
+            /* border: 1px solid black; */
+        }
+
+        .container {
+            width: 68%;
+            /* border: 1px solid black; */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 19px;
+            margin-top: 25px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 30px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border-radius: 50px;
+            border: 1px solid black;
+        }
+        h2{
+            align-items: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="container1">
+    <h2>Dog Image Gallary</h2>
+    <div class="container" id="dogContainer">
+        
+    </div>
+    <button id="fetchButton">Dog images</button>
+   </div>
+
+ <script>
+
+// Function to fetch and display dog images
+function fetchAndDisplayDogImages() {
+
+const dogContainer = document.getElementById('dogContainer');
+const fetchButton = document.getElementById('fetchButton');
+    fetch('https://dog.ceo/api/breeds/image/random/8')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const dogImages = data.message;
+
+                // Clear previous images
+                dogContainer.innerHTML = '';
+
+                // Use for...in loop to iterate through the array of dog images
+                for (const index in dogImages) {
+                    // Create an image element for each dog image
+                    const imgElement = document.createElement('img');
+                    imgElement.src = dogImages[index];
+                    imgElement.alt =` Dog Image ${parseInt(index) + 1}`;
+
+                    // Append the image element to the container
+                    dogContainer.appendChild(imgElement);
+                }
+            } else {
+                console.error('Failed to fetch dog images');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching dog images:', error);
+        });
+}
+
+// Add a click event listener to the button
+fetchButton.addEventListener('click', fetchAndDisplayDogImages);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+      .main {
+        width: 100%;
+        height: 25vh;
+        /* border: 1px solid black ; */
+      }
+      #movingElement {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 100px;
+      }
+      .sub-div{
+        /* width: 100%;
+        height: 100%; */
+        font-size: 6rem;
+        color: rgb(242, 242, 50);
+      }
+      button {
+        width: 60px;
+        height: 35px;
+        font-weight: bold;
+        /* margin-left: 100px; */
+        background-color: whitesmoke;
+        border: 1px solid black;
+
+      }
+      .btn {
+        width: 100%;
+        height: 100px;
+        /* text-align: center; */
+        /* border: 1px solid black; */
+
+      }
+    </style>
+    <title>Moving Elements</title>
+  </head>
+  <body>
+    <h1>Moving Elements</h1>
+    <div class="main"></div>
+    <div id="movingElement"><div class="sub-div"><i class="ri-user-smile-line"></i></div></div>
+    <div class="btn">
+      <button onclick="startMoving()">START</button>
+      <button onclick="stopMoving()">STOP</button>
+    </div>
+
+    <script>
+      let intervalId;
+      let currentPosition = 0;
+      const movementStep = 5;
+
+      function moveElement() {
+        const element = document.getElementById("movingElement");
+        currentPosition += movementStep;
+        element.style.left = currentPosition + "px";
+      }
+
+      function startMoving() {
+        intervalId = setInterval(moveElement, 100);
+      }
+
+      function stopMoving() {
+        clearInterval(intervalId);
+      }
+    </script>
+  </body>
+</html>

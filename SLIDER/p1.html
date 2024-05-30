@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+         .main{
+            height: 96vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* border: 1px solid red; */
+        }
+        .mimg{
+            height: 500px;
+            width: 60%;
+            position: relative;
+        }
+        div img{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="mimg">
+            <img src="imges/s1.jpg" alt="" class="simg">
+            <img src="imges/s2.jpg" alt="" class="simg">
+            <img src="imges/s3.jpg" alt="" class="simg">
+            <img src="imges/s4.jpg" alt="" class="simg">
+            <img src="imges/s5.jpg" alt="" class="simg">
+            <img src="imges/s6.jpg" alt="" class="simg">
+            <img src="imges/s7.jpg" alt="" class="simg">
+            <img src="imges/s8.jpg" alt="" class="simg">
+        </div>
+    </div>
+</body>
+<script>
+    counter=0;
+    function slider()
+    {
+        let ar=document.getElementsByClassName("simg");
+        for(var i=0;i<ar.length;i++)
+        {
+            ar[i].style.display="none";
+        }
+        if(counter>=ar.length)
+        {
+            counter=0;
+        }
+        ar[counter].style.display="block";
+        counter++;
+
+        setTimeout(slider,1500);    
+    }
+    slider();
+</script>
+</html>

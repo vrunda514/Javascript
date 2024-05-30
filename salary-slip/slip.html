@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salary slip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="first">
+                <h1>Company Name</h1>
+                <h4>[ Address Here ]</h4>
+                <h2>Salary Slip</h2>
+            </div>
+            <div class="second">
+                <p>Employee Name : <span id="nm"> </span> </p>
+                <p>Designation : <span id="des"></span> </p>
+                <p>month : <span id="mon"></span> </p>
+                <p>Year : <span id="yr"></span> </p> 
+            </div>
+            <div class="third">
+                <table border="1" width="100%">
+                    <tr>
+                        <th>Earnings</th>
+                        <th>Amount</th>
+                        <th>Deduction</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Basic Salary</td>
+                        <td id="sry"></td>
+                        <td>Providand fund</td>
+                        <td id="pf"></td>
+                    </tr>
+                    <tr>
+                        <td>HRA</td>
+                        <td id="hr"></td>
+                        <td>ESI</td>
+                        <td id="es"></td>
+                    </tr>
+                    <tr>
+                        <td>CA</td>
+                        <td id="ca"></td>
+                        <td>Loan</td>
+                        <td id="ln"></td>
+                    </tr>
+                    <tr>
+                        <td>DA</td>
+                        <td id="da"></td>
+                        <td>Profession Tex</td>
+                        <td id="pro"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>TSD/IT</td>
+                        <td id="ts"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL ADDITION</td>
+                        <td id="totadd"></td>
+                        <td>TOTAL DEDUCTION</td>
+                        <td id="totded"></td>
+                    </tr>
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <th>NET SALARY</th>
+                        <td id="net"></td>
+                    </tr> -->
+                </table>
+            </div>
+            <div class="four">
+                <p>Cheque : <span id="ch"> </span></p>
+                <p>Dated AS : <span id="date"> </span></p>
+                <p>Bank Name Here : <span id="bank"> </span></p>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    
+    let a=prompt("enter your name : ");
+    a=document.getElementById("nm").innerHTML=a;
+
+    let b=prompt("enter your Designation : ");
+    b=document.getElementById("des").innerHTML=b;
+
+    let c=prompt("enter your month : ");
+    c=document.getElementById("mon").innerHTML=c;
+
+    let d=prompt("enter your year : ");
+    d=document.getElementById("yr").innerHTML=d;
+
+    let e=parseInt(prompt("enter your Basic salary : "));
+    e=document.getElementById("sry").innerHTML=e;
+
+    let f=parseInt(prompt("enter your House Rent Allowances: "));
+    f=document.getElementById("hr").innerHTML=f;
+
+    let g=parseInt(prompt("enter your Conveyance Allowances : "));
+    g=document.getElementById("ca").innerHTML=g;
+
+    let h=parseInt(prompt("enter your Dearness  Allowances : "));
+    h=document.getElementById("da").innerHTML=h;
+
+    let i=parseInt(prompt("enter your  Providand fund : "));
+    i=document.getElementById("pf").innerHTML=i;
+
+    let j=parseInt(prompt("enter your  ESI(Employee State Insurance): "));
+    j=document.getElementById("es").innerHTML=j;
+
+    let k=parseInt(prompt("enter your Loan : "));
+    k=document.getElementById("ln").innerHTML=k;
+
+    let l=parseInt(prompt("enter your  Profession Tex : "));
+    l=document.getElementById("pro").innerHTML=l;
+
+    let m=parseInt(prompt("enter your TSD/IT : "));
+    m=document.getElementById("ts").innerHTML=m;
+
+    let n=parseInt(prompt("enter your cheque no. : "));
+    n=document.getElementById("ch").innerHTML=n;
+
+    let o=parseInt(prompt("enter your chaque date : "));
+    o=document.getElementById("date").innerHTML=o;
+
+    let p=prompt("enter your bank name : ");
+    p=document.getElementById("bank").innerHTML=p;
+
+    function totaladd()
+    {
+        let tot=e+f+g+h;
+        tot=document.getElementById("totadd").innerHTML=tot;
+    }
+    totaladd();
+
+    function totalded()
+    {
+        let tded=i+j+k+l+m;
+        document.getElementById("totded").innerHTML=tded;
+    }
+    totalded();
+
+    // function netsry()
+    // {
+    //     let nsry=tot-tded;
+    //     nsry=document.getElementById("net").innerHTML=nsry;
+    // }
+    // netsry();
+
+
+
+</script>
+</html>

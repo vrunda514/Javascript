@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .main{
+            height: 96vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* border: 1px solid red; */
+        }
+        .mimg{
+            height: 500px;
+            width: 60%;
+            position: relative;
+        }
+        div img{
+            height: 100%;
+            width: 100%;
+        }
+        #after{
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            font-size: 50px;
+            z-index: index -1;;
+        }
+        #after:hover{
+            cursor: pointer;
+        }
+        #before{
+            position: absolute;
+            top: 45%;
+            right: 15.5%;
+            font-size: 50px;
+            z-index: index -1;
+        }
+        #before:hover{
+            cursor: pointer;
+        }
+        @media(max-width:1200px)
+        {
+           .mimg{
+             height:400px; 
+             width: 58%;
+           }
+        }
+        @media(max-width:980px)
+        {
+           .mimg{
+             height:300px; 
+             width: 55%;
+           }
+        }
+        @media(max-width:780px)
+        {
+           .mimg{
+             height:280px; 
+             width: 53%;
+           }
+        }
+        @media(max-width:480px)
+        {
+           .mimg{
+             height:250px; 
+             width: 50%;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="mimg">
+            <img src="imges/s1.jpg" alt="" class="simg">
+            <img src="imges/s2.jpg" alt="" class="simg">
+            <img src="imges/s3.jpg" alt="" class="simg">
+            <img src="imges/s4.jpg" alt="" class="simg">
+            <img src="imges/s5.jpg" alt="" class="simg">
+            <img src="imges/s6.jpg" alt="" class="simg">
+            <img src="imges/s7.jpg" alt="" class="simg">
+            <img src="imges/s8.jpg" alt="" class="simg">
+        </div>
+            <i class="ri-arrow-left-line" onclick="pre()" id="after"></i>
+            <i class="ri-arrow-right-line" onclick="next()" id="before"></i>
+    </div>
+</body>
+<script>
+    counter=0;
+    let ar;
+        function slider()
+        {
+            ar=document.getElementsByClassName("simg");
+
+            for( var i=0;i<ar.length;i++)
+            {
+                ar[i].style.display="none";
+            }
+            ar[counter].style.display="block";
+            // counter++;
+
+            setTimeout(slider,10);
+        }
+        slider();
+        function pre()
+        {
+            if(counter>0)
+            {
+                counter--;
+            }
+            else
+            {
+                counter=ar.length -1;
+            }
+        }
+        pre();
+        function next()
+        {
+            counter++;
+             if(counter >=ar.length)
+            {
+                counter=1;
+            }
+        }
+        next();
+</script>
+</html>

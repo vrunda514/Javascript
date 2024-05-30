@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> corona api</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  jQuery(document).ready(function( $ ) {
+      $('.counter').counterUp({
+          delay: 20,
+          time: 3000
+      });
+  });
+</script>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <span class="navbar-brand">COVID-19</span>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Enter Country Name" aria-label="Search" id="srch">
+        <button class="btn btn-outline-danger" type="button" onclick="add()" > <i class="bi bi-search"> </i> </button>
+      </form>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div id="sub">
+      <h1>Corona Information</h1>
+      <h5>COVID-19 Cases in &nbsp; &nbsp; <span id="ct"> city name &nbsp; </span> <img src="2.jpg" alt="" id="im"> </h5>
+        <div id="count1">
+                <div class="cocon">
+                    <!-- <span class="counter1"><img src="image/c1.png" alt=""></span><br> -->
+                    <span class="counter" id="no">0</span><br>
+                    <span class="counter1 " id="con">Cases</span>
+                </div>
+                <div class="cocon">
+                    <!-- <span class="counter1"><img src="image/c2.png" alt=""></span><br> -->
+                    <span class="counter" id="no1">0</span><br>
+                    <span class="counter1" id="con1">Tests</span>
+                </div>
+                <div class="cocon">
+                    <!-- <span class="counter1"><img src="image/c3.png" alt=""></span><br> -->
+                    <span class="counter" id="no2">0</span><br>
+                    <span class="counter1" id="con"> Recovered</span>
+                </div>
+                <div class="cocon">
+                    <!-- <span class="counter1"><img src="image/c4.png" alt=""></span><br> -->
+                    <span class="counter" id="no3">0</span><br>
+                    <span class="counter1" id="con">Deaths</span>
+                </div>
+                <div class="cocon">
+                  <!-- <span class="counter1"><img src="image/c4.png" alt=""></span><br> -->
+                  <span class="counter" id="no7">0</span><br>
+                  <span class="counter1" id="con">Population</span>
+                </div>
+                <div class="cocon">
+                  <!-- <span class="counter1"><img src="image/c4.png" alt=""></span><br> -->
+                  <span class="counter" id="no4">0</span><br>
+                  <span class="counter1" id="con">TodayCases</span>
+                </div>
+                <div class="cocon">
+                  <!-- <span class="counter1"><img src="image/c4.png" alt=""></span><br> -->
+                  <span class="counter" id="no5">0</span><br>
+                  <span class="counter1" id="con">TodayRecovered</span>
+                </div>
+
+                <div class="cocon">
+                  <!-- <span class="counter1"><img src="image/c4.png" alt=""></span><br> -->
+                  <span class="counter" id="no6">0</span><br>
+                  <span class="counter1" id="con">TodayDeaths</span>
+                </div>
+               
+        </div>
+    </div>
+  </div>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="jquery.counterup.min.js"></script>
+</body>
+<script>
+   add=()=>
+    { 
+
+        var v=document.getElementById('srch').value;
+        // alert(v);
+        var url=`https://disease.sh/v3/covid-19/countries/${v}?yesterday=false&allowNull=false&allowNegative=false&sort=false`;
+        fetch(url)
+        .then(response=>response.json())
+        .then(data=>{
+            console.log(data);
+            // document.getElementById()
+            document.getElementById('ct').innerHTML=(data.country);
+            document.getElementById('im').src=(data.countryInfo.flag);
+            document.getElementById('no').innerHTML=(data.cases);
+            document.getElementById('no1').innerHTML=(data.tests);
+            document.getElementById('no2').innerHTML=(data. recovered);
+            document.getElementById('no3').innerHTML=(data.deaths);
+            document.getElementById('no7').innerHTML=(data.population);
+           document.getElementById('no4').innerHTML=(data.todayCases);
+           document.getElementById('no5').innerHTML=(data.todayRecovered);
+           document.getElementById('no6').innerHTML=(data.todayDeaths);
+        });
+      }
+      
+</script>
+</html>
+
+
+

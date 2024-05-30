@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employe details</title>
+    <style>
+        th{
+            padding: 10px;
+        }
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table border="2" align="center">
+        <tr>
+            <th colspan="5">EMPLOYEE DETAILS</th>
+        </tr>
+        <tr>
+            <th>Serial No</th>
+            <th>NAME</th>
+            <TH>AGE</TH>
+            <TH>DESIGNATION</TH>
+            <th>SALARY</th>
+        </tr>
+        <tr>
+            <td id="sr"></td>
+            <td id="nm"></td>
+            <td id="age"></td>
+            <td id="de"></td>
+            <td id="sry"></td>
+
+        </tr>
+    </table>
+</body>
+<script>
+    function emp(sr,name,age,des,sal)
+    {
+        this.sr=sr;
+        this.name=name;
+        this.age=age;
+        this.des=des;
+        this.sal=sal;
+        
+        let bouns=2000;
+        let hra=6000;
+        let da=4000;
+        let ta=1000;
+
+        let show=function()
+        {
+            show=sal+bouns+hra+da+ta;
+            document.getElementById("sry").innerHTML=( show);
+        }
+
+        this.display=function()
+        {
+            document.getElementById("sr").innerHTML=(this.sr);
+            document.getElementById("nm").innerHTML=( this.name + " <br>");
+            document.getElementById("age").innerHTML=( this.age + " <br>");
+            document.getElementById("de").innerHTML=( this.des + " <br>");
+            // document.write("My salary is : " + this.sal + " <br>");
+            show();
+        }
+
+    }
+    let d1=new emp(1,"vrunda",20,"fullstack",30000);
+    d1.display();
+</script>
+</html>
